@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Berkah Trans – Sewa Mobil & Bus Pariwisata Magelang</title>
+<meta name="description" content="Sewa mobil, minibus, dan bus pariwisata terpercaya di Magelang. Armada lengkap, harga terjangkau, siap antar jemput 24 jam."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@700;800;900&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --blue:#0057B8;
+  --blue2:#0070E0;
+  --blue3:#005099;
+  --sky:#38bdf8;
+  --cyan:#06b6d4;
+  --accent:#F5A623;
+  --white:#fff;
+  --offwhite:#F7F9FC;
+  --text:#1a2332;
+  --muted:#6b7a8d;
+  --light:#e8f0fa;
+  --border:#dde3ed;
+  --card:#fff;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--white);color:var(--text);overflow-x:hidden}
+
+/* ── TOP BAR ── */
+.topbar{background:var(--blue3);padding:.45rem 5%;display:flex;align-items:center;justify-content:space-between}
+.topbar-l{display:flex;align-items:center;gap:1.5rem}
+.topbar-item{display:flex;align-items:center;gap:.4rem;font-size:.75rem;color:rgba(255,255,255,.8);text-decoration:none;transition:color .2s}
+.topbar-item:hover{color:#fff}
+.topbar-item svg{width:13px;height:13px;fill:rgba(255,255,255,.6)}
+.topbar-r{display:flex;align-items:center;gap:1rem}
+.topbar-cta{background:var(--accent);color:#fff;padding:.3rem .9rem;border-radius:4px;font-size:.73rem;font-weight:700;text-decoration:none;letter-spacing:.04em;transition:all .2s}
+.topbar-cta:hover{background:#e0941e;transform:translateY(-1px)}
+
+/* ── NAVBAR ── */
+nav{position:sticky;top:0;z-index:200;background:#fff;border-bottom:2px solid var(--blue);box-shadow:0 2px 16px rgba(0,87,184,.1)}
+.nav-inner{padding:0 5%;display:flex;align-items:center;justify-content:space-between;height:68px}
+.nav-logo{display:flex;align-items:center;gap:.8rem;text-decoration:none}
+.logo-mark{width:44px;height:44px;background:linear-gradient(135deg,var(--blue),var(--blue2));border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;color:#fff;font-family:'Poppins',sans-serif;font-weight:900;letter-spacing:-.02em}
+.logo-info{display:flex;flex-direction:column;gap:.05rem}
+.logo-name{font-family:'Poppins',sans-serif;font-size:1.1rem;font-weight:900;color:var(--blue);letter-spacing:.02em;line-height:1}
+.logo-sub{font-size:.65rem;color:var(--muted);font-weight:500;letter-spacing:.06em;text-transform:uppercase}
+.nav-menu{display:flex;align-items:center;gap:0;list-style:none}
+.nav-menu>li{position:relative}
+.nav-menu>li>a{display:flex;align-items:center;gap:.3rem;padding:0 1rem;height:68px;font-size:.85rem;font-weight:600;color:var(--text);text-decoration:none;letter-spacing:.02em;transition:color .2s;position:relative;white-space:nowrap}
+.nav-menu>li>a::after{content:'';position:absolute;bottom:0;left:1rem;right:1rem;height:3px;background:var(--blue2);transform:scaleX(0);transition:transform .25s;border-radius:3px 3px 0 0}
+.nav-menu>li>a:hover{color:var(--blue)}
+.nav-menu>li>a:hover::after{transform:scaleX(1)}
+.nav-menu>li>a svg{width:10px;height:10px;fill:currentColor;transition:transform .2s}
+.nav-menu>li:hover>a svg{transform:rotate(180deg)}
+/* DROPDOWN */
+.dropdown{position:absolute;top:calc(100% + 0px);left:0;background:#fff;min-width:220px;border-radius:0 0 10px 10px;box-shadow:0 12px 40px rgba(0,87,184,.15);border-top:3px solid var(--blue2);opacity:0;visibility:hidden;transform:translateY(-8px);transition:all .25s;z-index:300}
+.nav-menu>li:hover .dropdown{opacity:1;visibility:visible;transform:translateY(0)}
+.dropdown a{display:flex;align-items:center;gap:.6rem;padding:.75rem 1.2rem;font-size:.84rem;font-weight:500;color:var(--text);text-decoration:none;transition:all .2s;border-bottom:1px solid var(--border)}
+.dropdown a:last-child{border-bottom:none}
+.dropdown a:hover{background:var(--light);color:var(--blue);padding-left:1.5rem}
+.dropdown a .di{font-size:1rem}
+.nav-cta-wrap{display:flex;align-items:center;gap:.8rem}
+.nav-cta{background:var(--blue);color:#fff;padding:.6rem 1.4rem;border-radius:6px;font-weight:700;font-size:.84rem;text-decoration:none;transition:all .25s;letter-spacing:.03em}
+.nav-cta:hover{background:var(--blue2);transform:translateY(-1px);box-shadow:0 4px 16px rgba(0,87,184,.3)}
+.nav-phone{display:flex;align-items:center;gap:.4rem;font-size:.82rem;font-weight:700;color:var(--blue);text-decoration:none}
+.nav-phone svg{width:14px;height:14px;fill:var(--blue)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px}
+.hamburger span{width:22px;height:2px;background:var(--blue);border-radius:2px;transition:all .3s}
+
+/* ── HERO ── */
+#hero{background:linear-gradient(135deg,var(--blue3) 0%,var(--blue2) 50%,#0091d5 100%);min-height:90vh;display:flex;align-items:center;position:relative;overflow:hidden}
+.hero-shapes{position:absolute;inset:0;pointer-events:none}
+.hs1{position:absolute;right:-5%;top:-10%;width:600px;height:600px;background:rgba(255,255,255,.04);border-radius:50%;border:1px solid rgba(255,255,255,.08)}
+.hs2{position:absolute;right:5%;top:5%;width:400px;height:400px;background:rgba(255,255,255,.04);border-radius:50%;border:1px solid rgba(255,255,255,.08)}
+.hs3{position:absolute;right:15%;top:20%;width:250px;height:250px;background:rgba(255,255,255,.06);border-radius:50%}
+.hero-wave{position:absolute;bottom:0;left:0;right:0}
+.hero-wave svg{width:100%;height:80px;display:block}
+.hero-inner{padding:5rem 5%;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;position:relative;z-index:2;width:100%}
+.hero-text{}
+.hero-tag{display:inline-flex;align-items:center;gap:.5rem;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);color:#fff;padding:.4rem 1rem;border-radius:50px;font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:1.5rem}
+.hero-tag span{width:6px;height:6px;background:var(--accent);border-radius:50%;animation:blink 1.5s ease infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+h1{font-family:'Poppins',sans-serif;font-size:clamp(2.4rem,5vw,4rem);font-weight:900;color:#fff;line-height:1.1;margin-bottom:1.2rem}
+h1 em{font-style:normal;color:var(--accent)}
+.hero-desc{font-size:1rem;line-height:1.75;color:rgba(255,255,255,.8);margin-bottom:2.5rem;max-width:460px}
+.hero-btns{display:flex;gap:1rem;flex-wrap:wrap}
+.hbtn1{display:inline-flex;align-items:center;gap:.6rem;background:#fff;color:var(--blue);padding:.85rem 1.8rem;border-radius:6px;font-weight:700;font-size:.92rem;text-decoration:none;transition:all .25s;box-shadow:0 4px 20px rgba(0,0,0,.15)}
+.hbtn1:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(0,0,0,.2)}
+.hbtn2{display:inline-flex;align-items:center;gap:.6rem;border:2px solid rgba(255,255,255,.6);color:#fff;padding:.85rem 1.8rem;border-radius:6px;font-weight:600;font-size:.92rem;text-decoration:none;transition:all .25s}
+.hbtn2:hover{border-color:#fff;background:rgba(255,255,255,.1);transform:translateY(-2px)}
+.hero-stats{display:flex;gap:2.5rem;margin-top:3rem;padding-top:2.5rem;border-top:1px solid rgba(255,255,255,.15);flex-wrap:wrap}
+.hstat-num{font-family:'Poppins',sans-serif;font-size:2rem;font-weight:900;color:#fff;display:block;line-height:1}
+.hstat-label{font-size:.75rem;color:rgba(255,255,255,.65);margin-top:.2rem;text-transform:uppercase;letter-spacing:.06em}
+/* BOOKING CARD */
+.hero-card{background:#fff;border-radius:16px;padding:2rem;box-shadow:0 20px 60px rgba(0,0,0,.2)}
+.hcard-title{font-family:'Poppins',sans-serif;font-size:1.1rem;font-weight:800;color:var(--blue);margin-bottom:1.5rem;display:flex;align-items:center;gap:.6rem}
+.hcard-title span{font-size:1.3rem}
+.form-row{display:flex;flex-direction:column;gap:1rem}
+.form-group label{display:block;font-size:.78rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.07em;margin-bottom:.4rem}
+.form-group select,.form-group input{width:100%;padding:.7rem .9rem;border:1.5px solid var(--border);border-radius:8px;font-family:'Inter',sans-serif;font-size:.88rem;color:var(--text);background:#fff;transition:border-color .2s;appearance:none}
+.form-group select:focus,.form-group input:focus{outline:none;border-color:var(--blue2)}
+.form-2col{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.book-submit{width:100%;background:linear-gradient(135deg,var(--blue),var(--blue2));color:#fff;padding:.9rem;border:none;border-radius:8px;font-family:'Poppins',sans-serif;font-size:.95rem;font-weight:800;cursor:pointer;letter-spacing:.04em;transition:all .25s;margin-top:.5rem}
+.book-submit:hover{transform:translateY(-2px);box-shadow:0 8px 25px rgba(0,87,184,.35)}
+.or-wa{display:flex;align-items:center;gap:.5rem;margin-top:.8rem;justify-content:center;font-size:.8rem;color:var(--muted)}
+.or-wa::before,.or-wa::after{content:'';flex:1;height:1px;background:var(--border)}
+.wa-link{display:flex;align-items:center;justify-content:center;gap:.5rem;margin-top:.7rem;background:#25D366;color:#fff;padding:.7rem;border-radius:8px;font-weight:700;font-size:.85rem;text-decoration:none;transition:all .2s}
+.wa-link:hover{background:#1da851;transform:translateY(-1px)}
+
+/* ── TICKER ── */
+.ticker-bar{background:var(--blue);padding:.75rem 0;overflow:hidden}
+.ticker-inner{display:flex;white-space:nowrap;animation:tick 30s linear infinite}
+.tick-item{display:inline-flex;align-items:center;gap:.5rem;padding:0 2rem;font-size:.78rem;font-weight:600;color:rgba(255,255,255,.85);letter-spacing:.08em;text-transform:uppercase}
+.tick-dot{color:var(--accent);font-size:.7rem}
+@keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ── LAYANAN ── */
+#layanan{padding:6rem 5%;background:var(--offwhite)}
+.sec-tag{font-size:.72rem;color:var(--blue2);font-weight:700;letter-spacing:.15em;text-transform:uppercase;margin-bottom:.6rem}
+h2{font-family:'Poppins',sans-serif;font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:900;color:var(--text);margin-bottom:.8rem}
+.sec-sub{color:var(--muted);font-size:.95rem;line-height:1.7;max-width:520px;margin-bottom:3rem}
+.service-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1.5rem}
+.svc-card{background:#fff;border-radius:14px;padding:1.8rem;border:1.5px solid var(--border);transition:all .3s;cursor:pointer;position:relative;overflow:hidden}
+.svc-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--blue),var(--cyan));transform:scaleX(0);transition:transform .3s}
+.svc-card:hover{border-color:rgba(0,112,224,.3);box-shadow:0 12px 40px rgba(0,87,184,.1);transform:translateY(-4px)}
+.svc-card:hover::before{transform:scaleX(1)}
+.svc-icon{width:56px;height:56px;background:var(--light);border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.6rem;margin-bottom:1.2rem;transition:transform .3s}
+.svc-card:hover .svc-icon{transform:scale(1.1)}
+.svc-title{font-family:'Poppins',sans-serif;font-size:1rem;font-weight:800;margin-bottom:.5rem;color:var(--text)}
+.svc-desc{font-size:.83rem;color:var(--muted);line-height:1.65}
+.svc-link{display:inline-flex;align-items:center;gap:.3rem;margin-top:1rem;font-size:.8rem;font-weight:700;color:var(--blue2);text-decoration:none;transition:gap .2s}
+.svc-card:hover .svc-link{gap:.6rem}
+
+/* ── ARMADA ── */
+#armada{padding:6rem 5%;background:#fff}
+.armada-head{display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:1rem;margin-bottom:2rem}
+.view-all{display:inline-flex;align-items:center;gap:.4rem;font-size:.85rem;font-weight:700;color:var(--blue2);text-decoration:none;border:1.5px solid var(--blue2);padding:.5rem 1.2rem;border-radius:50px;transition:all .2s}
+.view-all:hover{background:var(--blue2);color:#fff}
+.fleet-tabs{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:2.5rem;border-bottom:2px solid var(--border);padding-bottom:0}
+.ftab{padding:.7rem 1.4rem;font-size:.84rem;font-weight:700;color:var(--muted);background:none;border:none;cursor:pointer;font-family:'Inter',sans-serif;position:relative;transition:color .2s;white-space:nowrap}
+.ftab::after{content:'';position:absolute;bottom:-2px;left:0;right:0;height:3px;background:var(--blue2);transform:scaleX(0);transition:transform .25s;border-radius:3px 3px 0 0}
+.ftab.active{color:var(--blue)}
+.ftab.active::after{transform:scaleX(1)}
+.ftab:hover{color:var(--blue)}
+.fleet-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.5rem}
+.fleet-card{background:#fff;border:1.5px solid var(--border);border-radius:14px;overflow:hidden;transition:all .3s}
+.fleet-card:hover{border-color:rgba(0,112,224,.35);box-shadow:0 12px 40px rgba(0,87,184,.1);transform:translateY(-5px)}
+.fleet-card.hidden{display:none}
+.fc-thumb{height:185px;background:linear-gradient(135deg,var(--light),#daeeff);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.fc-emoji{font-size:5.5rem;transition:transform .4s;filter:drop-shadow(0 8px 20px rgba(0,87,184,.2))}
+.fleet-card:hover .fc-emoji{transform:scale(1.1) translateY(-5px)}
+.fc-badge{position:absolute;top:12px;left:12px;background:var(--blue);color:#fff;font-size:.68rem;font-weight:700;padding:.28rem .75rem;border-radius:4px;letter-spacing:.06em;text-transform:uppercase}
+.fc-badge.hot{background:var(--accent)}
+.fc-body{padding:1.4rem}
+.fc-name{font-family:'Poppins',sans-serif;font-size:1.05rem;font-weight:800;color:var(--text);margin-bottom:.2rem}
+.fc-type{font-size:.73rem;color:var(--blue2);text-transform:uppercase;letter-spacing:.1em;font-weight:700;margin-bottom:.9rem}
+.fc-specs{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:1.1rem}
+.fspec{font-size:.75rem;color:var(--muted);background:var(--offwhite);padding:.25rem .65rem;border-radius:50px;border:1px solid var(--border)}
+.fc-foot{display:flex;align-items:center;justify-content:space-between;padding-top:1rem;border-top:1px solid var(--border)}
+.fc-price{font-family:'Poppins',sans-serif;font-size:1.15rem;font-weight:900;color:var(--blue)}
+.fc-unit{font-size:.72rem;color:var(--muted);display:block;font-weight:400}
+.fc-btn{display:inline-flex;align-items:center;gap:.3rem;background:var(--blue);color:#fff;padding:.5rem 1.1rem;border-radius:6px;font-size:.8rem;font-weight:700;text-decoration:none;transition:all .2s}
+.fc-btn:hover{background:var(--blue2);transform:scale(1.04)}
+
+/* ── KENAPA KAMI ── */
+#why{background:var(--blue);padding:6rem 5%}
+.why-inner{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
+.why-text h2{color:#fff;margin-bottom:1rem}
+.why-text p{color:rgba(255,255,255,.75);font-size:.95rem;line-height:1.75;margin-bottom:2rem}
+.why-cta{display:inline-flex;align-items:center;gap:.6rem;background:#fff;color:var(--blue);padding:.8rem 1.8rem;border-radius:6px;font-weight:700;font-size:.9rem;text-decoration:none;transition:all .25s}
+.why-cta:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,.2)}
+.why-cards{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.wcard{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);border-radius:14px;padding:1.5rem;transition:all .3s}
+.wcard:hover{background:rgba(255,255,255,.16);transform:translateY(-3px)}
+.wcard-icon{font-size:1.8rem;margin-bottom:.8rem}
+.wcard-title{font-family:'Poppins',sans-serif;font-size:.95rem;font-weight:800;color:#fff;margin-bottom:.4rem}
+.wcard-desc{font-size:.82rem;color:rgba(255,255,255,.65);line-height:1.65}
+
+/* ── COVERAGE ── */
+#coverage{padding:5rem 5%;background:var(--offwhite);text-align:center}
+.coverage-inner{max-width:800px;margin:0 auto}
+.coverage-inner h2{margin-bottom:.8rem}
+.coverage-inner p{color:var(--muted);font-size:.95rem;margin-bottom:3rem}
+.cities{display:flex;gap:.7rem;flex-wrap:wrap;justify-content:center}
+.city-tag{background:#fff;border:1.5px solid var(--border);color:var(--text);padding:.5rem 1.2rem;border-radius:50px;font-size:.83rem;font-weight:600;transition:all .2s}
+.city-tag:hover{border-color:var(--blue2);color:var(--blue);background:var(--light);transform:translateY(-2px)}
+
+/* ── STEPS ── */
+#cara-pesan{padding:6rem 5%;background:#fff}
+.steps-row{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;margin-top:3rem;position:relative}
+.steps-row::before{content:'';position:absolute;top:30px;left:12.5%;right:12.5%;height:2px;background:linear-gradient(90deg,var(--blue),var(--cyan));opacity:.2;pointer-events:none}
+.step-box{text-align:center;padding:0 .5rem}
+.snum{width:60px;height:60px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--blue2));color:#fff;font-family:'Poppins',sans-serif;font-size:1.4rem;font-weight:900;display:flex;align-items:center;justify-content:center;margin:0 auto 1.2rem;box-shadow:0 6px 20px rgba(0,87,184,.3);transition:transform .3s,box-shadow .3s}
+.step-box:hover .snum{transform:scale(1.1);box-shadow:0 10px 30px rgba(0,87,184,.45)}
+.s-title{font-family:'Poppins',sans-serif;font-size:.95rem;font-weight:800;margin-bottom:.5rem}
+.s-desc{font-size:.83rem;color:var(--muted);line-height:1.65}
+
+/* ── TESTIMONIALS ── */
+#testimonial{padding:6rem 5%;background:var(--offwhite)}
+.test-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.5rem;margin-top:3rem}
+.test-card{background:#fff;border:1.5px solid var(--border);border-radius:14px;padding:1.8rem;transition:all .3s}
+.test-card:hover{border-color:rgba(0,112,224,.3);box-shadow:0 10px 35px rgba(0,87,184,.08);transform:translateY(-4px)}
+.test-stars{color:var(--accent);font-size:.9rem;margin-bottom:.9rem}
+.test-text{font-size:.88rem;line-height:1.75;color:var(--muted);font-style:italic;margin-bottom:1.2rem}
+.test-author{display:flex;align-items:center;gap:.8rem}
+.t-av{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--cyan));color:#fff;font-family:'Poppins',sans-serif;font-weight:800;font-size:1rem;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.t-name{font-weight:700;font-size:.88rem}
+.t-loc{font-size:.76rem;color:var(--muted)}
+
+/* ── CTA BANNER ── */
+#cta{background:linear-gradient(135deg,var(--blue3),var(--blue2));padding:5rem 5%;text-align:center;position:relative;overflow:hidden}
+.cta-bg{position:absolute;inset:0;opacity:.06;background-image:radial-gradient(circle,rgba(255,255,255,.8) 1px,transparent 1px);background-size:28px 28px;pointer-events:none}
+.cta-inner{position:relative;z-index:2}
+.cta-inner h2{color:#fff;font-size:clamp(2rem,4vw,3rem);margin-bottom:1rem}
+.cta-inner p{color:rgba(255,255,255,.75);margin-bottom:2.5rem;font-size:1rem}
+.cta-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+.cbtn-wa{display:inline-flex;align-items:center;gap:.6rem;background:#25D366;color:#fff;padding:.9rem 2rem;border-radius:7px;font-weight:700;font-size:.92rem;text-decoration:none;transition:all .25s;box-shadow:0 4px 20px rgba(37,211,102,.3)}
+.cbtn-wa:hover{background:#1da851;transform:translateY(-2px);box-shadow:0 8px 30px rgba(37,211,102,.45)}
+.cbtn-ph{display:inline-flex;align-items:center;gap:.6rem;background:rgba(255,255,255,.15);border:2px solid rgba(255,255,255,.5);color:#fff;padding:.9rem 2rem;border-radius:7px;font-weight:700;font-size:.92rem;text-decoration:none;transition:all .25s}
+.cbtn-ph:hover{background:rgba(255,255,255,.25);border-color:#fff;transform:translateY(-2px)}
+.cta-info{display:flex;justify-content:center;gap:3rem;margin-top:3rem;flex-wrap:wrap}
+.ci{display:flex;align-items:center;gap:.5rem;font-size:.85rem;color:rgba(255,255,255,.75)}
+.ci strong{color:#fff}
+
+/* ── FOOTER ── */
+footer{background:#0a1929;color:#fff;padding:4rem 5% 2rem}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;margin-bottom:3rem}
+.footer-brand .logo-mark{margin-bottom:1rem}
+.footer-brand p{font-size:.84rem;color:rgba(255,255,255,.5);line-height:1.75;margin-top:.8rem;max-width:240px}
+.footer-col h4{font-family:'Poppins',sans-serif;font-size:.88rem;font-weight:800;margin-bottom:1.2rem;color:#fff;letter-spacing:.04em;text-transform:uppercase}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:.6rem}
+.footer-col a{color:rgba(255,255,255,.5);text-decoration:none;font-size:.84rem;transition:color .2s}
+.footer-col a:hover{color:var(--sky)}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.08);padding-top:1.5rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+.footer-bottom p{font-size:.78rem;color:rgba(255,255,255,.35)}
+.social-links{display:flex;gap:.8rem}
+.sl{width:34px;height:34px;border-radius:8px;background:rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;font-size:.9rem;text-decoration:none;transition:background .2s}
+.sl:hover{background:var(--blue2)}
+
+/* FLOAT WA */
+.float-wa{position:fixed;bottom:2rem;right:2rem;z-index:999;display:flex;align-items:center;gap:.7rem;background:#25D366;color:#fff;padding:.75rem 1.4rem .75rem .9rem;border-radius:50px;font-weight:700;font-size:.85rem;text-decoration:none;box-shadow:0 4px 20px rgba(37,211,102,.45);transition:all .3s;animation:waPop .5s 1.2s ease both}
+.float-wa:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(37,211,102,.6)}
+.float-wa svg{width:24px;height:24px;fill:white;flex-shrink:0}
+.pr{position:absolute;inset:-5px;border:2px solid rgba(37,211,102,.5);border-radius:50px;animation:prAnim 2s ease infinite}
+@keyframes prAnim{0%{transform:scale(1);opacity:.7}100%{transform:scale(1.15);opacity:0}}
+@keyframes waPop{from{transform:scale(0) translateX(50px);opacity:0}to{transform:scale(1) translateX(0);opacity:1}}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .6s ease,transform .6s ease}
+.reveal.in{opacity:1;transform:translateY(0)}
+
+/* RESPONSIVE */
+@media(max-width:1024px){
+  .hero-inner{grid-template-columns:1fr;gap:3rem}
+  .hero-card{max-width:480px}
+  .why-inner{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:768px){
+  .topbar,.nav-cta-wrap{display:none}
+  .nav-menu{display:none}
+  .hamburger{display:flex}
+  .steps-row{grid-template-columns:1fr 1fr;gap:2rem}
+  .steps-row::before{display:none}
+  .why-cards{grid-template-columns:1fr}
+}
+@media(max-width:480px){
+  .hero-inner{padding:4rem 5% 3rem}
+  h1{font-size:2.2rem}
+  .steps-row{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr}
+  .form-2col{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="topbar-l">
+    <a href="tel:+6282228026064" class="topbar-item">
+      <svg viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+      0822-2802-6064
+    </a>
+    <a href="https://wa.me/6282228026064" class="topbar-item" target="_blank">
+      <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.117 1.528 5.848L.057 23.716a.5.5 0 0 0 .606.61l6.001-1.474A11.945 11.945 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.907 0-3.693-.516-5.222-1.415l-.374-.222-3.876.952.975-3.786-.244-.391A9.954 9.954 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+      WhatsApp
+    </a>
+    <span class="topbar-item">📍 Magelang, Jawa Tengah</span>
+  </div>
+  <div class="topbar-r">
+    <a href="https://wa.me/6282228026064?text=Halo,%20saya%20ingin%20pesan%20kendaraan" class="topbar-cta" target="_blank">Pesan Sekarang</a>
+  </div>
+</div>
+
+<!-- NAVBAR -->
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">
+      <div class="logo-mark">BT</div>
+      <div class="logo-info">
+        <span class="logo-name">Berkah Trans</span>
+        <span class="logo-sub">Sewa Mobil & Bus Magelang</span>
+      </div>
+    </a>
+    <ul class="nav-menu">
+      <li>
+        <a href="#layanan">Layanan <svg viewBox="0 0 10 6"><path d="M1 1l4 4 4-4"/></svg></a>
+        <div class="dropdown">
+          <a href="#armada"><span class="di">🚗</span> Sewa Mobil Harian</a>
+          <a href="#armada"><span class="di">🚐</span> Sewa Minibus</a>
+          <a href="#armada"><span class="di">🚌</span> Bus Pariwisata</a>
+          <a href="#layanan"><span class="di">✈️</span> Antar Jemput Bandara</a>
+        </div>
+      </li>
+      <li>
+        <a href="#armada">Armada <svg viewBox="0 0 10 6"><path d="M1 1l4 4 4-4"/></svg></a>
+        <div class="dropdown">
+          <a href="#armada"><span class="di">🚗</span> City Car / Mobil Kecil</a>
+          <a href="#armada"><span class="di">🚙</span> Toyota Avanza Terbaru</a>
+          <a href="#armada"><span class="di">🛻</span> Toyota Innova</a>
+          <a href="#armada"><span class="di">🚐</span> HiAce / Minibus</a>
+          <a href="#armada"><span class="di">🚌</span> Jet Bus Pariwisata</a>
+        </div>
+      </li>
+      <li><a href="#cara-pesan">Cara Pesan</a></li>
+      <li><a href="#testimonial">Ulasan</a></li>
+      <li><a href="#coverage">Area Layanan</a></li>
+    </ul>
+    <div class="nav-cta-wrap">
+      <a href="tel:+6282228026064" class="nav-phone">
+        <svg viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+        0822-2802-6064
+      </a>
+      <a href="https://wa.me/6282228026064?text=Halo,%20saya%20ingin%20pesan%20kendaraan" class="nav-cta" target="_blank">Pesan Sekarang</a>
+    </div>
+    <div class="hamburger" id="ham"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-shapes"><div class="hs1"></div><div class="hs2"></div><div class="hs3"></div></div>
+  <div class="hero-wave"><svg viewBox="0 0 1440 80" preserveAspectRatio="none"><path d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z" fill="white"/></svg></div>
+  <div class="hero-inner">
+    <div class="hero-text">
+      <div class="hero-tag"><span></span>Terpercaya di Magelang Sejak 2019</div>
+      <h1>Rental Kendaraan <em>Terlengkap</em> di Magelang</h1>
+      <p class="hero-desc">Dari mobil kecil hingga bus pariwisata Jet Bus 5, kami hadir dengan armada terawat, sopir profesional, dan layanan 24 jam untuk setiap perjalanan Anda.</p>
+      <div class="hero-btns">
+        <a href="https://wa.me/6282228026064?text=Halo%20Berkah%20Trans,%20saya%20ingin%20sewa%20kendaraan" class="hbtn1" target="_blank">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="var(--blue)"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.117 1.528 5.848L.057 23.716a.5.5 0 0 0 .606.61l6.001-1.474A11.945 11.945 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.907 0-3.693-.516-5.222-1.415l-.374-.222-3.876.952.975-3.786-.244-.391A9.954 9.954 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+          Chat WhatsApp
+        </a>
+        <a href="#armada" class="hbtn2">Lihat Armada →</a>
+      </div>
+      <div class="hero-stats">
+        <div><span class="hstat-num" data-target="500" data-suf="+">0+</span><div class="hstat-label">Pelanggan Puas</div></div>
+        <div><span class="hstat-num" data-target="5" data-suf="+ Thn">0</span><div class="hstat-label">Pengalaman</div></div>
+        <div><span class="hstat-num" data-target="20" data-suf="+ Unit">0</span><div class="hstat-label">Armada</div></div>
+        <div><span class="hstat-num">24/7</span><div class="hstat-label">Siap Layani</div></div>
+      </div>
+    </div>
+    <!-- BOOKING CARD -->
+    <div class="hero-card reveal">
+      <div class="hcard-title"><span>📋</span> Cek Ketersediaan Armada</div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Jenis Kendaraan</label>
+          <select id="fKendaraan">
+            <option value="">-- Pilih Kendaraan --</option>
+            <option>🚗 City Car / Agya / Brio</option>
+            <option>🚙 Toyota Avanza Terbaru</option>
+            <option>🛻 Toyota Innova Reborn</option>
+            <option>🚐 Toyota HiAce Premio</option>
+            <option>🚌 Isuzu Elf / Medium Bus</option>
+            <option>🚍 Bus Pariwisata Jet Bus 5</option>
+          </select>
+        </div>
+        <div class="form-2col">
+          <div class="form-group">
+            <label>Tanggal Mulai</label>
+            <input type="date" id="fStart"/>
+          </div>
+          <div class="form-group">
+            <label>Tanggal Selesai</label>
+            <input type="date" id="fEnd"/>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Tujuan / Keterangan</label>
+          <input type="text" id="fTujuan" placeholder="Contoh: Wisata Borobudur, Bandara YIA..."/>
+        </div>
+        <button class="book-submit" onclick="submitBooking()">🔍 Cek & Pesan Sekarang</button>
+        <div class="or-wa">atau hubungi via</div>
+        <a href="https://wa.me/6282228026064?text=Halo%20Berkah%20Trans,%20saya%20ingin%20sewa%20kendaraan" class="wa-link" target="_blank">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.117 1.528 5.848L.057 23.716a.5.5 0 0 0 .606.61l6.001-1.474A11.945 11.945 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.907 0-3.693-.516-5.222-1.415l-.374-.222-3.876.952.975-3.786-.244-.391A9.954 9.954 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+          WhatsApp Langsung
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker-bar">
+  <div class="ticker-inner">
+    <span class="tick-item"><span class="tick-dot">✦</span> Sewa Mobil Harian</span>
+    <span class="tick-item"><span class="tick-dot">✦</span> Bus Pariwisata Jet Bus 5</span>
+    <span class="tick-item"><span class="tick-dot">✦</span> Antar Jemput Bandara YIA</span>
+    <span class="tick-item"><span class="tick-dot">✦</span> Avanza Terbaru 2024</span>
+    <span class="tick-item"><span class="tick-dot">✦</span> Minibus HiAce Premio</span>
+    <span class="tick-item"><span class="tick-dot">✦</span> Wisata Magelang & Jogja</span>
+    <span class="tick-item"><span class="tick-dot">✦</span> Sopir Profesional</span>
+    <span class="tick-item"><span class="tick-dot">✦</span> 24 Jam Siap Layani</span>
+    <span class="tick-item"><span class="tick-dot">✦</span> Sewa Mobil Harian</span>
+    <span class="tick-item"><span class="tick-dot">✦</span> Bus Pariwisata Jet Bus 5</span>
+    <span class="tick-item"><span class="tick-dot">✦</span> Antar Jemput Bandara YIA</span>
+    <span class="tick-item"><span class="tick-dot">✦</span> Avanza Terbaru 2024</span>
+    <span class="tick-item"><span class="tick-dot">✦</span> Minibus HiAce Premio</span>
+    <span class="tick-item"><span class="tick-dot">✦</span> Wisata Magelang & Jogja</span>
+    <span class="tick-item"><span class="tick-dot">✦</span> Sopir Profesional</span>
+    <span class="tick-item"><span class="tick-dot">✦</span> 24 Jam Siap Layani</span>
+  </div>
+</div>
+
+<!-- LAYANAN -->
+<section id="layanan">
+<div class="reveal"><div class="sec-tag">Layanan Kami</div><h2>Solusi Transportasi <span style="color:var(--blue2)">Lengkap & Terpercaya</span></h2><p class="sec-sub">Kami menyediakan berbagai pilihan layanan transportasi untuk kebutuhan pribadi, keluarga, maupun perusahaan.</p></div>
+<div class="service-grid">
+  <div class="svc-card reveal"><div class="svc-icon">🚗</div><div class="svc-title">Sewa Mobil Harian</div><div class="svc-desc">Tersedia berbagai pilihan dari city car hingga MPV premium untuk perjalanan harian Anda.</div><a href="#armada" class="svc-link">Lihat Armada →</a></div>
+  <div class="svc-card reveal"><div class="svc-icon">🚐</div><div class="svc-title">Sewa Minibus</div><div class="svc-desc">HiAce Premio dan Medium Bus untuk rombongan 12–20 orang. Nyaman dan terjangkau.</div><a href="#armada" class="svc-link">Lihat Armada →</a></div>
+  <div class="svc-card reveal"><div class="svc-icon">🚌</div><div class="svc-title">Bus Pariwisata</div><div class="svc-desc">Jet Bus 5 kapasitas 40–50 seat dengan fasilitas premium untuk wisata rombongan besar.</div><a href="#armada" class="svc-link">Lihat Armada →</a></div>
+  <div class="svc-card reveal"><div class="svc-icon">✈️</div><div class="svc-title">Antar Jemput Bandara</div><div class="svc-desc">Layanan antar jemput Bandara YIA, Soekarno-Hatta, dan Ahmad Yani Semarang.</div><a href="https://wa.me/6282228026064" class="svc-link" target="_blank">Hubungi Kami →</a></div>
+  <div class="svc-card reveal"><div class="svc-icon">🏔️</div><div class="svc-title">Wisata Magelang</div><div class="svc-desc">Paket wisata Borobudur, Prambanan, Merapi, dan destinasi wisata Jawa Tengah lainnya.</div><a href="https://wa.me/6282228026064" class="svc-link" target="_blank">Info Paket →</a></div>
+  <div class="svc-card reveal"><div class="svc-icon">🏢</div><div class="svc-title">Korporat & Event</div><div class="svc-desc">Solusi transportasi untuk perusahaan, seminar, outbound, dan acara resmi lainnya.</div><a href="https://wa.me/6282228026064" class="svc-link" target="_blank">Hubungi Kami →</a></div>
+</div>
+</section>
+
+<!-- ARMADA -->
+<section id="armada">
+<div class="armada-head reveal">
+  <div>
+    <div class="sec-tag">Armada Kami</div>
+    <h2>Pilih Kendaraan <span style="color:var(--blue2)">Sesuai Kebutuhan</span></h2>
+  </div>
+  <a href="https://wa.me/6282228026064?text=Halo,%20saya%20ingin%20tanya%20ketersediaan%20armada" class="view-all" target="_blank">Tanya Ketersediaan →</a>
+</div>
+<div class="fleet-tabs reveal">
+  <button class="ftab active" onclick="filterTab('all',this)">Semua Armada</button>
+  <button class="ftab" onclick="filterTab('mpv',this)">🚗 Mobil & MPV</button>
+  <button class="ftab" onclick="filterTab('minibus',this)">🚐 Minibus</button>
+  <button class="ftab" onclick="filterTab('bus',this)">🚌 Bus Pariwisata</button>
+</div>
+<div class="fleet-grid">
+
+  <div class="fleet-card reveal" data-cat="mpv">
+    <div class="fc-thumb"><div class="fc-emoji">🚗</div><div class="fc-badge">City Car</div></div>
+    <div class="fc-body">
+      <div class="fc-name">Agya / Brio / Calya</div>
+      <div class="fc-type">Mobil Kecil — Irit & Lincah</div>
+      <div class="fc-specs">
+        <span class="fspec">👤 4 Penumpang</span><span class="fspec">❄️ AC</span><span class="fspec">⛽ Irit BBM</span>
+      </div>
+      <div class="fc-foot">
+        <div><div class="fc-price">Rp 300rb</div><span class="fc-unit">/ hari (estimasi)</span></div>
+        <a href="https://wa.me/6282228026064?text=Halo,%20saya%20ingin%20sewa%20City%20Car" class="fc-btn" target="_blank">Pesan</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="fleet-card reveal" data-cat="mpv">
+    <div class="fc-thumb"><div class="fc-emoji">🚙</div><div class="fc-badge hot">⭐ Terbaru</div></div>
+    <div class="fc-body">
+      <div class="fc-name">Toyota Avanza Terbaru</div>
+      <div class="fc-type">MPV Keluarga Modern 2024</div>
+      <div class="fc-specs">
+        <span class="fspec">👤 7 Penumpang</span><span class="fspec">❄️ Double Blower</span><span class="fspec">🎵 Audio</span>
+      </div>
+      <div class="fc-foot">
+        <div><div class="fc-price">Rp 400rb</div><span class="fc-unit">/ hari (estimasi)</span></div>
+        <a href="https://wa.me/6282228026064?text=Halo,%20saya%20ingin%20sewa%20Avanza%20Terbaru" class="fc-btn" target="_blank">Pesan</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="fleet-card reveal" data-cat="mpv">
+    <div class="fc-thumb"><div class="fc-emoji">🛻</div></div>
+    <div class="fc-body">
+      <div class="fc-name">Toyota Innova Reborn</div>
+      <div class="fc-type">Premium MPV — Elegan</div>
+      <div class="fc-specs">
+        <span class="fspec">👤 7 Penumpang</span><span class="fspec">💺 Kabin Lega</span><span class="fspec">⚡ Diesel</span>
+      </div>
+      <div class="fc-foot">
+        <div><div class="fc-price">Rp 550rb</div><span class="fc-unit">/ hari (estimasi)</span></div>
+        <a href="https://wa.me/6282228026064?text=Halo,%20saya%20ingin%20sewa%20Innova" class="fc-btn" target="_blank">Pesan</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="fleet-card reveal" data-cat="minibus">
+    <div class="fc-thumb"><div class="fc-emoji">🚐</div><div class="fc-badge">Rombongan</div></div>
+    <div class="fc-body">
+      <div class="fc-name">Toyota HiAce Premio</div>
+      <div class="fc-type">Minibus Premium</div>
+      <div class="fc-specs">
+        <span class="fspec">👤 12–14 Seat</span><span class="fspec">❄️ Full AC</span><span class="fspec">💺 Seat Empuk</span>
+      </div>
+      <div class="fc-foot">
+        <div><div class="fc-price">Rp 750rb</div><span class="fc-unit">/ hari (estimasi)</span></div>
+        <a href="https://wa.me/6282228026064?text=Halo,%20saya%20ingin%20sewa%20HiAce" class="fc-btn" target="_blank">Pesan</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="fleet-card reveal" data-cat="minibus">
+    <div class="fc-thumb"><div class="fc-emoji">🚌</div></div>
+    <div class="fc-body">
+      <div class="fc-name">Isuzu Elf / Medium Bus</div>
+      <div class="fc-type">Minibus Wisata — Serbaguna</div>
+      <div class="fc-specs">
+        <span class="fspec">👤 16–20 Seat</span><span class="fspec">❄️ AC Dingin</span><span class="fspec">🎒 Bagasi Besar</span>
+      </div>
+      <div class="fc-foot">
+        <div><div class="fc-price">Rp 1,2 jt</div><span class="fc-unit">/ hari (estimasi)</span></div>
+        <a href="https://wa.me/6282228026064?text=Halo,%20saya%20ingin%20sewa%20Elf%20Medium%20Bus" class="fc-btn" target="_blank">Pesan</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="fleet-card reveal" data-cat="bus">
+    <div class="fc-thumb" style="background:linear-gradient(135deg,#daeeff,#c5e4f8)"><div class="fc-emoji">🚍</div><div class="fc-badge hot">⭐ Andalan</div></div>
+    <div class="fc-body">
+      <div class="fc-name">Bus Pariwisata Jet Bus 5</div>
+      <div class="fc-type">Bus Premium Kelas Satu</div>
+      <div class="fc-specs">
+        <span class="fspec">👤 40–50 Seat</span><span class="fspec">❄️ AC Arctic</span><span class="fspec">🎬 LCD TV</span><span class="fspec">🔌 Charger</span>
+      </div>
+      <div class="fc-foot">
+        <div><div class="fc-price">Nego</div><span class="fc-unit">sesuai tujuan & durasi</span></div>
+        <a href="https://wa.me/6282228026064?text=Halo,%20saya%20ingin%20info%20harga%20Jet%20Bus%20Pariwisata" class="fc-btn" target="_blank">Tanya Harga</a>
+      </div>
+    </div>
+  </div>
+
+</div>
+<p style="margin-top:1.5rem;color:var(--muted);font-size:.82rem;text-align:center">* Harga estimasi, dapat berubah sewaktu-waktu. Hubungi kami untuk penawaran terbaik.</p>
+</section>
+
+<!-- WHY US -->
+<section id="why">
+<div class="why-inner reveal">
+  <div class="why-text">
+    <div class="sec-tag" style="color:rgba(255,255,255,.6)">Mengapa Berkah Trans</div>
+    <h2>Dipercaya Ribuan Pelanggan di Magelang</h2>
+    <p>Selama lebih dari 5 tahun kami melayani perjalanan keluarga, wisata, dan korporat dengan standar kualitas tinggi dan harga yang jujur.</p>
+    <a href="https://wa.me/6282228026064?text=Halo%20Berkah%20Trans" class="why-cta" target="_blank">Hubungi Kami Sekarang →</a>
+  </div>
+  <div class="why-cards">
+    <div class="wcard"><div class="wcard-icon">🛡️</div><div class="wcard-title">Armada Terawat</div><div class="wcard-desc">Kendaraan rutin servis, kondisi prima setiap saat</div></div>
+    <div class="wcard"><div class="wcard-icon">💰</div><div class="wcard-title">Harga Transparan</div><div class="wcard-desc">Tidak ada biaya tersembunyi, harga jelas di awal</div></div>
+    <div class="wcard"><div class="wcard-icon">⏰</div><div class="wcard-title">Tepat Waktu</div><div class="wcard-desc">Penjemputan selalu ontime, kami hargai waktu Anda</div></div>
+    <div class="wcard"><div class="wcard-icon">🌟</div><div class="wcard-title">Rating Bintang 5</div><div class="wcard-desc">Ulasan positif di Google Maps dari ratusan pelanggan</div></div>
+  </div>
+</div>
+</section>
+
+<!-- COVERAGE -->
+<section id="coverage">
+<div class="coverage-inner">
+  <div class="reveal"><div class="sec-tag">Area Layanan</div><h2>Kami Melayani Seluruh <span style="color:var(--blue2)">Jawa Tengah & DIY</span></h2><p>Melayani pengantaran dan penjemputan ke berbagai kota tujuan.</p></div>
+  <div class="cities reveal">
+    <span class="city-tag">📍 Magelang</span><span class="city-tag">📍 Yogyakarta</span><span class="city-tag">📍 Semarang</span><span class="city-tag">📍 Solo / Surakarta</span><span class="city-tag">📍 Purworejo</span><span class="city-tag">📍 Temanggung</span><span class="city-tag">📍 Wonosobo</span><span class="city-tag">📍 Muntilan</span><span class="city-tag">📍 Bandara YIA</span><span class="city-tag">📍 Borobudur</span><span class="city-tag">📍 Prambanan</span><span class="city-tag">+ Kota Lainnya</span>
+  </div>
+</div>
+</section>
+
+<!-- CARA PESAN -->
+<section id="cara-pesan" style="background:#fff;padding:6rem 5%">
+<div class="reveal"><div class="sec-tag">Cara Pemesanan</div><h2>Booking Mudah <span style="color:var(--blue2)">dalam 4 Langkah</span></h2></div>
+<div class="steps-row">
+  <div class="step-box reveal"><div class="snum">1</div><div class="s-title">Hubungi Kami</div><div class="s-desc">Chat WhatsApp atau telepon ke nomor kami kapan saja, 24 jam.</div></div>
+  <div class="step-box reveal"><div class="snum">2</div><div class="s-title">Diskusi Kebutuhan</div><div class="s-desc">Tentukan kendaraan, tanggal, tujuan, dan jumlah penumpang.</div></div>
+  <div class="step-box reveal"><div class="snum">3</div><div class="s-title">Konfirmasi & DP</div><div class="s-desc">DP untuk mengunci booking. Pelunasan pada hari keberangkatan.</div></div>
+  <div class="step-box reveal"><div class="snum">4</div><div class="s-title">Berangkat! 🎉</div><div class="s-desc">Sopir kami menjemput tepat waktu. Selamat menikmati perjalanan!</div></div>
+</div>
+</section>
+
+<!-- TESTIMONIAL -->
+<section id="testimonial">
+<div class="reveal"><div class="sec-tag">Ulasan Pelanggan</div><h2>Apa Kata <span style="color:var(--blue2)">Pelanggan Kami?</span></h2><p class="sec-sub">Ratusan pelanggan puas telah mempercayakan perjalanan mereka kepada Berkah Trans.</p></div>
+<div class="test-grid">
+  <div class="test-card reveal"><div class="test-stars">★★★★★</div><div class="test-text">"Sopirnya ramah, tepat waktu, dan mobilnya bersih banget. Sangat puas sewa di Berkah Trans untuk wisata Borobudur sekeluarga!"</div><div class="test-author"><div class="t-av">A</div><div><div class="t-name">Adi Prasetyo</div><div class="t-loc">📍 Magelang</div></div></div></div>
+  <div class="test-card reveal"><div class="test-stars">★★★★★</div><div class="test-text">"Sewa bus pariwisata untuk acara kantor kami, pelayanannya sangat profesional. Harga sesuai kesepakatan, tidak ada biaya tambahan tersembunyi."</div><div class="test-author"><div class="t-av">S</div><div><div class="t-name">Siti Rahayu</div><div class="t-loc">📍 Yogyakarta</div></div></div></div>
+  <div class="test-card reveal"><div class="test-stars">★★★★★</div><div class="test-text">"Sudah 3x sewa HiAce di sini buat piknik keluarga. Selalu puas! Mobilnya baru, AC super dingin, sopirnya hafal semua jalan di Magelang."</div><div class="test-author"><div class="t-av">B</div><div><div class="t-name">Budi Santoso</div><div class="t-loc">📍 Temanggung</div></div></div></div>
+</div>
+</section>
+
+<!-- CTA BANNER -->
+<section id="cta">
+  <div class="cta-bg"></div>
+  <div class="cta-inner reveal">
+    <h2>Siap Menemani Setiap Perjalanan Anda</h2>
+    <p>Hubungi kami sekarang dan dapatkan penawaran terbaik untuk kebutuhan transportasi Anda.</p>
+    <div class="cta-btns">
+      <a href="https://wa.me/6282228026064?text=Halo%20Berkah%20Trans,%20saya%20ingin%20sewa%20kendaraan" class="cbtn-wa" target="_blank">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.117 1.528 5.848L.057 23.716a.5.5 0 0 0 .606.61l6.001-1.474A11.945 11.945 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.907 0-3.693-.516-5.222-1.415l-.374-.222-3.876.952.975-3.786-.244-.391A9.954 9.954 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+        Chat WhatsApp Sekarang
+      </a>
+      <a href="tel:+6282228026064" class="cbtn-ph">📞 0822-2802-6064</a>
+    </div>
+    <div class="cta-info">
+      <div class="ci">📍 <strong>Magelang, Jawa Tengah</strong></div>
+      <div class="ci">🕐 <strong>Buka 24 Jam / 7 Hari</strong></div>
+      <div class="ci">⭐ <strong>Rating 5 Bintang Google</strong></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="logo-mark">BT</div>
+      <div class="logo-name" style="font-family:'Poppins',sans-serif;font-size:1.1rem;font-weight:900;color:#fff;margin-top:.5rem">Berkah Trans</div>
+      <p>Sewa mobil dan bus pariwisata terpercaya di Magelang. Melayani dengan sepenuh hati sejak 2019.</p>
+      <div style="margin-top:1rem;display:flex;flex-direction:column;gap:.4rem">
+        <a href="tel:+6282228026064" style="color:rgba(255,255,255,.6);font-size:.84rem;text-decoration:none">📞 0822-2802-6064</a>
+        <a href="https://wa.me/6282228026064" style="color:rgba(255,255,255,.6);font-size:.84rem;text-decoration:none" target="_blank">💬 WhatsApp</a>
+        <span style="color:rgba(255,255,255,.6);font-size:.84rem">📍 Magelang, Jawa Tengah</span>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Layanan</h4>
+      <ul>
+        <li><a href="#layanan">Sewa Mobil Harian</a></li>
+        <li><a href="#layanan">Sewa Minibus</a></li>
+        <li><a href="#layanan">Bus Pariwisata</a></li>
+        <li><a href="#layanan">Antar Jemput Bandara</a></li>
+        <li><a href="#layanan">Wisata Magelang</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Armada</h4>
+      <ul>
+        <li><a href="#armada">City Car / Agya / Brio</a></li>
+        <li><a href="#armada">Toyota Avanza Terbaru</a></li>
+        <li><a href="#armada">Toyota Innova</a></li>
+        <li><a href="#armada">HiAce / Minibus</a></li>
+        <li><a href="#armada">Jet Bus Pariwisata</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Informasi</h4>
+      <ul>
+        <li><a href="#cara-pesan">Cara Pesan</a></li>
+        <li><a href="#testimonial">Ulasan Pelanggan</a></li>
+        <li><a href="#coverage">Area Layanan</a></li>
+        <li><a href="https://wa.me/6282228026064" target="_blank">Hubungi Kami</a></li>
+        <li><a href="https://www.google.com/maps/search/BERKAH+TRANS+Magelang" target="_blank">Google Maps</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 Berkah Trans — Sewa Mobil & Bus Pariwisata Magelang. All rights reserved.</p>
+    <div class="social-links">
+      <a href="https://wa.me/6282228026064" class="sl" target="_blank">💬</a>
+      <a href="https://www.google.com/maps/search/BERKAH+TRANS+Magelang" class="sl" target="_blank">📍</a>
+    </div>
+  </div>
+</footer>
+
+<!-- FLOAT WA -->
+<a href="https://wa.me/6282228026064?text=Halo%20Berkah%20Trans,%20saya%20ingin%20sewa%20kendaraan" class="float-wa" target="_blank">
+  <div class="pr"></div>
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.117 1.528 5.848L.057 23.716a.5.5 0 0 0 .606.61l6.001-1.474A11.945 11.945 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.907 0-3.693-.516-5.222-1.415l-.374-.222-3.876.952.975-3.786-.244-.391A9.954 9.954 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+  Chat WA
+</a>
+
+<script>
+// SCROLL REVEAL
+const revs = document.querySelectorAll('.reveal');
+const ro = new IntersectionObserver(entries => {
+  entries.forEach((e, i) => {
+    if (e.isIntersecting) { setTimeout(() => e.target.classList.add('in'), i * 80); ro.unobserve(e.target); }
+  });
+}, { threshold: 0.07 });
+revs.forEach(r => ro.observe(r));
+
+// COUNTER
+document.querySelectorAll('[data-target]').forEach(el => {
+  new IntersectionObserver(([e]) => {
+    if (e.isIntersecting) {
+      const t = +el.dataset.target, s = el.dataset.suf || '+';
+      let c = 0; const step = t / 55;
+      const iv = setInterval(() => { c += step; if (c >= t) { el.textContent = t + s; clearInterval(iv); } else el.textContent = Math.floor(c) + s; }, 18);
+      e.target._obs?.unobserve(e.target);
+    }
+  }, { threshold: .5 }).observe(el);
+});
+
+// FLEET FILTER
+function filterTab(cat, btn) {
+  document.querySelectorAll('.ftab').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.fleet-card').forEach(c => c.classList.toggle('hidden', cat !== 'all' && c.dataset.cat !== cat));
+}
+
+// BOOKING FORM → WA
+function submitBooking() {
+  const k = document.getElementById('fKendaraan').value;
+  const d1 = document.getElementById('fStart').value;
+  const d2 = document.getElementById('fEnd').value;
+  const t = document.getElementById('fTujuan').value;
+  let msg = 'Halo Berkah Trans, saya ingin sewa kendaraan.\n\n';
+  if (k) msg += '🚗 Kendaraan: ' + k + '\n';
+  if (d1) msg += '📅 Mulai: ' + d1 + '\n';
+  if (d2) msg += '📅 Selesai: ' + d2 + '\n';
+  if (t) msg += '📍 Tujuan: ' + t + '\n';
+  msg += '\nMohon info ketersediaan dan harga. Terima kasih!';
+  window.open('https://wa.me/6282228026064?text=' + encodeURIComponent(msg), '_blank');
+}
+
+// NAVBAR SCROLL (topbar hide on scroll)
+window.addEventListener('scroll', () => {
+  document.querySelector('nav').style.boxShadow = scrollY > 10 ? '0 2px 20px rgba(0,87,184,.15)' : '0 2px 16px rgba(0,87,184,.1)';
+});
+
+// MOBILE MENU
+document.getElementById('ham').addEventListener('click', function () {
+  const nm = document.querySelector('.nav-menu');
+  const isOpen = nm.style.display === 'flex';
+  nm.style.cssText = isOpen ? '' : 'display:flex;flex-direction:column;position:fixed;top:68px;left:0;right:0;background:#fff;padding:1.5rem 5%;gap:0;border-top:2px solid var(--blue);box-shadow:0 10px 30px rgba(0,0,0,.1);z-index:200';
+  if (!isOpen) {
+    nm.querySelectorAll('a').forEach(a => { a.style.cssText = 'padding:.9rem 0;border-bottom:1px solid var(--border);height:auto'; });
+    nm.querySelectorAll('.dropdown').forEach(d => d.remove());
+  }
+});
+</script>
+</body>
+</html>
